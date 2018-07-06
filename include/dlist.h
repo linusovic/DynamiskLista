@@ -2,7 +2,8 @@
 #define __DLIST_H
 
 #include <stdbool.h>
-#include "util.h"
+
+#include "../include/util.h"
 
 /*
  * Declaration of a generic, directed list for the "Datastructures

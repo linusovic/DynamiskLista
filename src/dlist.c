@@ -1,7 +1,8 @@
+#include "../include/dlist.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "dlist.h"
 
 /*
  * Implementation of a generic, undirected list for the

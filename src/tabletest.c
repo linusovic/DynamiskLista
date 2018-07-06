@@ -62,7 +62,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
-#include "table.h"
+#include <mtftable.h>
 
 // Maximum size of the table to generate
 #define TABLESIZE 40000

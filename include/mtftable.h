@@ -2,7 +2,8 @@
 #define TABLE_H
 
 #include <stdbool.h>
-#include "util.h"
+
+#include "../include/util.h"
 
 /*
  * Declaration of a generic table for the "Datastructures and

@@ -1,8 +1,8 @@
+#include <mtftable.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "table.h"
-#include "dlist.h"
+#include "../include/dlist.h"
 
 /*
  * Implementation of a generic table for the "Datastructures and
@@ -109,8 +109,8 @@ void table_insert(table *t, void *key, void *value)
  */
 void *table_lookup(const table *t, const void *key)
 {
-	// Iterate over the list. Return first match.
 
+	// Iterate over the list. Return first match.
 	dlist_pos pos = dlist_first(t->entries);
 
 	while (!dlist_is_end(t->entries, pos)) {
@@ -118,7 +118,9 @@ void *table_lookup(const table *t, const void *key)
 		struct table_entry *entry = dlist_inspect(t->entries, pos);
 		// Check if the entry key matches the search key.
 		if (t->key_cmp_func(entry->key, key) == 0) {
-			// If yes, return the corresponding value pointer.
+			//Move the looked up value to the beginning of the list.
+			dlist_insert(t->entries,entry,dlist_first(t->entries));	//Insert
+			dlist_remove(t->entries, pos);			//Remove
 			return entry->value;
 		}
 		// Continue with the next position.
